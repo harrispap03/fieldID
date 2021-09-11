@@ -66,7 +66,7 @@ p {
 
 .qrCode,
 p {
-  margin-right: 10rem;
+  margin-right: 8rem;
 }
 
 @media screen and (max-width: 959px) {
@@ -81,7 +81,8 @@ p {
     width: 100%;
   }
 
-  .qrCode {
+  .qrCode,
+  p {
     margin: 0;
   }
 }
