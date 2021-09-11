@@ -1,5 +1,10 @@
-table {
-  width: 100%;
+.mat-table{    
+  margin: 3rem auto;
+  align-items: center;
+  width: 90%;
+  background-color: #5a5a5a;
+    border-radius: 20px;
+    overflow:hidden !important;
 }
 
 td,
