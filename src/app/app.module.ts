@@ -26,7 +26,9 @@ import {MatTableModule} from '@angular/material/table';
 
 import { environment } from 'src/environments/environment';
 import { QRCodeModule } from 'angularx-qrcode';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +51,10 @@ import { QRCodeModule } from 'angularx-qrcode';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     MatTableModule,
-    QRCodeModule
+    QRCodeModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
