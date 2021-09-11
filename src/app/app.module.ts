@@ -29,7 +29,6 @@ import { QRCodeModule } from 'angularx-qrcode';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-import { ZXingScannerModule } from '@zxing/ngx-scanner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,8 +54,7 @@ import { ZXingScannerModule } from '@zxing/ngx-scanner';
     QRCodeModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    MatInputModule,
-    ZXingScannerModule
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
