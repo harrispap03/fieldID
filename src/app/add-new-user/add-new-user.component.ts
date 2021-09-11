@@ -12,7 +12,7 @@ export class AddNewUserComponent implements OnInit {
   userId!: string;
   qrCodeCreated = false;
 
-  constructor(private fb: FormBuilder, private afs: AngularFirestore) { }
+  constructor(private fb: FormBuilder, private afs: AngularFirestore) {}
 
   ngOnInit(): void {
     this.newUserForm = this.fb.group({
@@ -34,5 +34,6 @@ export class AddNewUserComponent implements OnInit {
       console.error(err);
     }
     this.qrCodeCreated = true;
+    this.newUserForm.reset();
   }
 }
