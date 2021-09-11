@@ -8,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class QrScannerComponent implements OnInit {
 
   constructor() { }
+  
+  onScanSuccess(){
+
+  }
 
   ngOnInit(): void {
   }
