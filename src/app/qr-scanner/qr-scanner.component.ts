@@ -14,7 +14,7 @@ export class QrScannerComponent {
   private qrResult$ = new Subject<string>();
   addUserToAFS!: Subscription;
   userData!: User;
-  private recentUserData!: RecentUser;
+  private recentUserData!: RecentUser | undefined;
 
   constructor(private afs: AngularFirestore) {
     this.addUserToAFS = this.qrResult$
@@ -24,10 +24,9 @@ export class QrScannerComponent {
           this.afs.collection<User>('users').doc(qrResult).valueChanges()
         )
       )
-      .subscribe((userData: any) => {
-        this.userData = userData;
-        this.recentUserData = this.userData;
-        this.recentUserData.checkInTime = new Date();
+      .subscribe((userData: User | undefined) => {
+        this.recentUserData = userData;
+        this.recentUserData!.checkInTime = new Date();
         this.afs.collection('recentUsers').add(this.recentUserData);
       });
   }
