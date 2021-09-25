@@ -30,6 +30,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { MatPaginatorModule } from '@angular/material/paginator';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +57,8 @@ import { ZXingScannerModule } from '@zxing/ngx-scanner';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
-    ZXingScannerModule
+    ZXingScannerModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
