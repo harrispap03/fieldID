@@ -22,6 +22,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 import { environment } from 'src/environments/environment';
@@ -60,7 +61,8 @@ import { ManageUsersComponent } from './manage-users/manage-users.component';
     ReactiveFormsModule,
     MatInputModule,
     ZXingScannerModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
