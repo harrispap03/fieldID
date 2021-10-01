@@ -1,13 +1,25 @@
-.mat-table{    
-  margin: 3rem auto;
+.mat-elevation-z24{    
+  margin: 3rem auto; // 3 rem questionable
   align-items: center;
-  width: 90%;
-  background-color: #5a5a5a;
+  width: 95%; // could be less than 90%
+   border-radius: 20px;
+    overflow:hidden !important;
+}
+.mat-table{    
+  margin: 0 auto;
+  align-items: center;
     border-radius: 20px;
     overflow:hidden !important;
+    width: 90%;
 }
 
 td,
 th {
   text-align: center !important;
 }
+
+.mat-paginator{
+  padding-right: 5rem;
+  // padding-top: 2rem; 
+}
+
