@@ -31,6 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { ManageUsersComponent } from './manage-users/manage-users.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     AddNewUserComponent,
     NavigationBarComponent,
     QrScannerComponent,
-    RecordComponent
+    RecordComponent,
+    ManageUsersComponent
   ],
   imports: [
     BrowserModule,
