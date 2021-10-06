@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 @Component({
   selector: 'app-add-new-user',
   templateUrl: './add-new-user.component.html',
@@ -18,12 +23,22 @@ export class AddNewUserComponent implements OnInit {
       name: [null, [Validators.required]],
       surname: [null, [Validators.required]],
       idNum: [null, [Validators.required]],
+      search: [null],
     });
   }
 
   async onSubmit() {
-    const formValue = this.newUserForm.value;
+    const userData = this.newUserForm.value;
 
+    let arr: any = [];
+
+    Object.keys(userData).map((key) => {
+      arr.push(userData[key]);
+    });
+
+    this.newUserForm.patchValue({ search: arr });
+
+    const formValue = this.newUserForm.value;
     try {
       await this.afs
         .collection('users')

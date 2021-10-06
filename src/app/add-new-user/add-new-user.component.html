@@ -1,50 +1,55 @@
-<div class="card mat-elevation-z8">
-  <div class="leftBox">
-    <form [formGroup]="newUserForm" (ngSubmit)="onSubmit()" class="form">
-      <mat-form-field class="full-width">
-        <mat-label>Name</mat-label>
-        <input
-          matInput
-          placeholder="ex. George"
-          formControlName="name"
-          required
-        />
-      </mat-form-field>
-
-      <mat-form-field class="full-width">
-        <mat-label>Surname</mat-label>
-        <input
-          matInput
-          placeholder="ex. Smith"
-          formControlName="surname"
-          required
-        />
-      </mat-form-field>
-
-      <mat-form-field class="full-width">
-        <mat-label>Id Number</mat-label>
-        <input
-          matInput
-          placeholder="ex. 4859"
-          formControlName="idNum"
-          required
-        />
-      </mat-form-field>
-      <button mat-stroked-button [disabled]="newUserForm.invalid">
-        Generate QR Code
-      </button>
-    </form>
-  </div>
-  <div class="rightBox">
-    <div class="qrCode" *ngIf="qrCodeCreated; else showInstructions">
-      <qrcode
-        [qrdata]="userId"
-        [width]="200"
-        [errorCorrectionLevel]="'M'"
-      ></qrcode>
+<mat-dialog-content>
+  <div class="card mat-elevation-z24">
+    <div class="leftBox">
+      <form [formGroup]="newUserForm" (ngSubmit)="onSubmit()" class="form" autocomplete="off">
+        <mat-form-field class="full-width">
+          <mat-label>Name</mat-label>
+          <input
+            matInput
+            placeholder="ex. George"
+            formControlName="name"
+            required
+          />
+        </mat-form-field>
+  
+        <mat-form-field class="full-width">
+          <mat-label>Surname</mat-label>
+          <input
+            matInput
+            placeholder="ex. Smith"
+            formControlName="surname"
+            required
+          />
+        </mat-form-field>
+  
+        <mat-form-field class="full-width">
+          <mat-label>Id Number</mat-label>
+          <input
+            matInput
+            placeholder="ex. 4859"
+            formControlName="idNum"
+            required
+          />
+        </mat-form-field>
+        <button mat-stroked-button [disabled]="newUserForm.invalid">
+          Generate QR Code
+        </button>
+      </form>
     </div>
-    <ng-template #showInstructions>
-      <p>Create a user and his unique QR code will appear here</p>
-    </ng-template>
+    <div class="rightBox">
+      <div class="qrCode" *ngIf="qrCodeCreated; else showInstructions">
+        <qrcode
+          [qrdata]="userId"
+          [width]="200"
+          [errorCorrectionLevel]="'M'"
+        ></qrcode>
+      </div>
+      <ng-template #showInstructions>
+        <p>Create a user and his unique QR code will appear here</p>
+      </ng-template>
+    </div>
   </div>
-</div>
+</mat-dialog-content>
+
+
+

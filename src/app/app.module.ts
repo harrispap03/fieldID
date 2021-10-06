@@ -62,7 +62,7 @@ import { ManageUsersComponent } from './manage-users/manage-users.component';
     MatInputModule,
     ZXingScannerModule,
     MatPaginatorModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

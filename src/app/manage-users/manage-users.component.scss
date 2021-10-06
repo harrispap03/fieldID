@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 91vh;
+  // border: blue solid;
+}
+
+.top-bar{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2em 10em;
+  align-items: center;
+  // border: blue solid;
+}
+
+.icon{
+	font-size: 29px;
+	height: 29px;
+	width: 29px;
+	color: white;
+}
+
+table{
+  width: 94%;
+  margin-bottom: 14em;
+}
+
+spacer{
+  flex: 0 1 auto;
+}
