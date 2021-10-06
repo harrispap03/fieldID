@@ -2,25 +2,33 @@ import { Injectable } from '@angular/core';
 import {
   AngularFirestore,
   AngularFirestoreCollection,
+  AngularFirestoreDocument,
 } from '@angular/fire/firestore';
-import { concat, merge, pipe } from 'rxjs';
-import { filter, first, map, switchMap, take } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsersService {
-  results: any;
-  docc: any;
-  nameQueryResult: any;
-  surnameQueryResult!: any;
-  idNumQueryResult!: any;
+  userDoc!: AngularFirestoreDocument<User>;
+  users$!: Observable<User[]>;
+  usersCollection: AngularFirestoreCollection<User>;
 
-  private usersCollectionReference: AngularFirestoreCollection<User> =
-    this.afs.collection<User>('users');
+  constructor(private afs: AngularFirestore) {
+    this.usersCollection = this.afs.collection('users');
 
-  constructor(private afs: AngularFirestore) {}
+    this.users$ = this.usersCollection.snapshotChanges().pipe(
+      map((changes) => {
+        return changes.map((a) => {
+          const data = a.payload.doc.data() as User;
+          data.id = a.payload.doc.id;
+          return data;
+        });
+      })
+    );
+  }
 
   getUserBySearchInput(searchInput: string) {
     return this.afs.collection('users', (ref) =>
@@ -29,6 +37,11 @@ export class UsersService {
   }
 
   getUsers() {
-    return this.usersCollectionReference;
+    return this.users$;
+  }
+
+  deleteUser(user: User) {
+    this.userDoc = this.afs.doc(`users/${user.id}`);
+    this.userDoc.delete();
   }
 }

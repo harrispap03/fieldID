@@ -23,13 +23,6 @@
   <table mat-table [dataSource]="users$" class="table-list mat-elevation-z24">
     <!-- Name Column -->
 
-    <mat-dialog-content matColumnDef="edit">
-      <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell *matCellDef="let _">
-        <mat-icon class="icon" (click)="popup()">add_circle_outline</mat-icon>
-      </td>
-    </mat-dialog-content>
-
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Name</th>
       <td mat-cell *matCellDef="let user">{{ user.name }}</td>
@@ -46,6 +39,20 @@
       <th mat-header-cell *matHeaderCellDef>idNum</th>
       <td mat-cell *matCellDef="let user">{{ user.idNum }}</td>
     </ng-container>
+
+    <mat-dialog-content matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let user">
+        <mat-icon class="icon" (click)="popup()">add_circle_outline</mat-icon>
+      </td>
+    </mat-dialog-content>
+
+    <mat-dialog-content matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let user">
+        <mat-icon (click)="deleteUser(user)" class="icon">delete</mat-icon>
+      </td>
+    </mat-dialog-content>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
