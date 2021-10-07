@@ -25,13 +25,11 @@ export class ManageUsersComponent {
   }
 
   onSearch(searchInputValue: string) {
-    this._usersService
-      .getUserBySearchInput(searchInputValue)
-      .valueChanges()
-      .subscribe((result: any) => (this.users$ = result));
+    this.users$ = this._usersService.getUserBySearchInput(searchInputValue);
   }
 
   deleteUser(user: User) {
     this._usersService.deleteUser(user);
+    console.log(user);
   }
 }
