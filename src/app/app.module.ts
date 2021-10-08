@@ -33,6 +33,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,8 @@ import { ManageUsersComponent } from './manage-users/manage-users.component';
     NavigationBarComponent,
     QrScannerComponent,
     RecordComponent,
-    ManageUsersComponent
+    ManageUsersComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,

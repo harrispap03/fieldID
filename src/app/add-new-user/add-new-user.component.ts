@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import {
   FormBuilder,
@@ -6,6 +6,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { User } from '../models/user.model';
 @Component({
   selector: 'app-add-new-user',
   templateUrl: './add-new-user.component.html',
@@ -16,7 +18,7 @@ export class AddNewUserComponent implements OnInit {
   userId!: string;
   qrCodeCreated = false;
 
-  constructor(private fb: FormBuilder, private afs: AngularFirestore) {}
+  constructor(private fb: FormBuilder, private afs: AngularFirestore, @Inject(MAT_DIALOG_DATA) public userData: User) {}
 
   ngOnInit(): void {
     this.newUserForm = this.fb.group({

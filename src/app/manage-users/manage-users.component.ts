@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { AddNewUserComponent } from '../add-new-user/add-new-user.component';
+import { EditUserComponent } from '../edit-user/edit-user.component';
 import { User } from '../models/user.model';
 import { UsersService } from './users.service';
 @Component({
@@ -13,15 +14,28 @@ export class ManageUsersComponent {
   users$!: Observable<User[]>;
   displayedColumns: string[] = ['name', 'surname', 'idNum', 'edit', 'delete'];
 
-  constructor(
-    public newUserPopup: MatDialog,
-    private _usersService: UsersService
-  ) {
+  constructor(public popup: MatDialog, private _usersService: UsersService) {
     this.users$ = this._usersService.getUsers();
   }
 
-  popup() {
-    this.newUserPopup.open(AddNewUserComponent);
+  addNewUser() {
+    this.popup.open(AddNewUserComponent)
+  }
+
+  editUser(user: User) {
+    this.popup.open(EditUserComponent, {
+      data: {
+        name: user.name,
+        surname: user.surname,
+        idNum: user.idNum,
+        id: user.id,
+        
+      },
+    });
+    // console.log(user.name)
+    // console.log(user.surname)
+    // console.log(user.idNum)
+    // console.log(user.id)
   }
 
   onSearch(searchInputValue: string) {
@@ -30,6 +44,5 @@ export class ManageUsersComponent {
 
   deleteUser(user: User) {
     this._usersService.deleteUser(user);
-    console.log(user);
   }
 }
