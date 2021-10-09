@@ -19,6 +19,7 @@ export class EditUserComponent implements OnInit {
   qrCodeCreated = false;
   userDoc!: any;
   myNewThing!: any;
+  array!: any;
   constructor(
     private fb: FormBuilder,
     private afs: AngularFirestore,
@@ -35,44 +36,27 @@ export class EditUserComponent implements OnInit {
     // this.userDoc = this.afs.collection(`users/${this.userData.id}`)
   }
 
-  async readyBatch() {
-    // The value of the form the user has submited
-    const formValue = await this.newUserForm.value;
-
-    //Taking all the values and putting them into an array
+  getSearchArray(formValues: any) {
     let searchArray: any = [];
-    Object.keys(formValue).map((key) => {
-      searchArray.push(formValue[key]);
+    Object.keys(formValues).map((key) => {
+      searchArray.push(formValues[key]);
     });
-
-    //Adding the array to the form
-    this.newUserForm.patchValue({ search: searchArray });
+    return searchArray;
   }
 
   async onSubmit() {
-    // await this.readyBatch();
-
-    // Sending the form to the db
-    let values = await this.newUserForm.getRawValue();
-    console.log(values);
-
-    await this.afs
-      .collection('users')
-      .doc(this.userData.id)
-      .update({
-        name: values.name,
-        surname: values.surname,
-        idNum: values.idNum,
-      })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
+    try {
+      const formValues = await this.newUserForm.getRawValue();
+      const searchArray = this.getSearchArray(formValues);
+      await this.afs.collection('users').doc(this.userData.id).update({
+        name: formValues.name,
+        surname: formValues.surname,
+        idNum: formValues.idNum,
+        search: searchArray,
       });
-
-    this.qrCodeCreated = true; // Switches a template variable the other way around so a div will be displayed
-    // Will put other stuff like the one above in the future
-    // (mainly animations etc to let the user know that the db document has been updated)
+      this.qrCodeCreated = true; // Switches a template variable the other
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
