@@ -26,7 +26,6 @@ export class RecordComponent implements OnInit {
       .subscribe((things) => {
         this.dataSource = new MatTableDataSource(things);
         this.dataSource.paginator = this.paginator;
-        console.log(this.dataSource.data)
       });
   }
 }

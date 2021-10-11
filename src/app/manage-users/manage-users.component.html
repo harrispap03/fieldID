@@ -4,15 +4,15 @@
     <mat-form-field appearance="standard" [style.width.px]="500">
       <!--Should be squeezed on the left-->
       <mat-label>Search for a user</mat-label>
-      <input matInput autocomplete="off" #searchInput />
+      <input (keydown.enter) = "onSearch(searchInput.value)" matInput autocomplete="off" #searchInput />
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
     <button
-      mat-raised-button
+      mat-flat-button
       color="basic"
-      (click)="onSearch(searchInput.value)"
+      (click)="onRefresh()"
     >
-      Search
+      <mat-icon>refresh</mat-icon>
     </button>
     <span class="spacer"></span>
     <mat-dialog-content>

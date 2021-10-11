@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { BehaviorSubject, Observable, Subject, Subscriber, Subscription } from 'rxjs';
+import {
+  BehaviorSubject,
+  Observable,
+  Subject,
+  Subscriber,
+  Subscription,
+} from 'rxjs';
 import { distinctUntilChanged, filter, mergeMap } from 'rxjs/operators';
 import { RecentUser } from '../models/recentUser.model';
 import { User } from '../models/user.model';
@@ -15,6 +21,7 @@ export class QrScannerComponent {
   addUserToAFS!: Subscription;
   userData!: User;
   private recentUserData!: RecentUser | undefined;
+  camerasNotFound!: boolean;
 
   constructor(private afs: AngularFirestore) {
     this.addUserToAFS = this.qrResult$
@@ -32,20 +39,10 @@ export class QrScannerComponent {
   }
 
   onCamerasNotFound(error: Error) {
-    console.log(error); // Replace this with some HTML
+    this.camerasNotFound = true;
   }
 
   onScanSuccess(qrCode: string) {
     this.qrResult$.next(qrCode);
   }
-
-  // this.sub = this.qrResult$.pipe(
-  //   filter(id => !!id),
-  //   distinctUntilChanged(),
-  //   mergeMap((IncomingQRResult ) => this.afs.collection('users').doc(IncomingQRResult).valueChanges())
-  // ).subscribe( data => {
-  //   this.doc = data;
-  //   this.doc.checkInTime = new Date();
-  //   this.afs.collection('recentUsers').add(this.doc);
-  // });
 }

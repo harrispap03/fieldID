@@ -33,6 +33,10 @@ export class ManageUsersComponent {
     });
   }
 
+  onRefresh(){
+    this.users$ = this._usersService.getUsers();
+  }
+
   onSearch(searchInputValue: string) {
     this.users$ = this._usersService.getUserBySearchInput(searchInputValue);
   }
