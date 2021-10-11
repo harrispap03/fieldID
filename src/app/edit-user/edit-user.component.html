@@ -42,16 +42,13 @@
       </form>
     </div>
     <div class="rightBox">
-      <div class="qrCode" *ngIf="qrCodeCreated; else showInstructions">
+      <div class="qrCode">
         <qrcode
-          [qrdata]="userId"
+          [qrdata]="userData.id"
           [width]="200"
           [errorCorrectionLevel]="'M'"
         ></qrcode>
       </div>
-      <ng-template #showInstructions>
-        <p>Create a user and his unique QR code will appear here</p>
-      </ng-template>
     </div>
   </div>
 </mat-dialog-content>

@@ -19,7 +19,7 @@ export class ManageUsersComponent {
   }
 
   addNewUser() {
-    this.popup.open(AddNewUserComponent)
+    this.popup.open(AddNewUserComponent);
   }
 
   editUser(user: User) {
@@ -29,13 +29,8 @@ export class ManageUsersComponent {
         surname: user.surname,
         idNum: user.idNum,
         id: user.id,
-        
       },
     });
-    // console.log(user.name)
-    // console.log(user.surname)
-    // console.log(user.idNum)
-    // console.log(user.id)
   }
 
   onSearch(searchInputValue: string) {

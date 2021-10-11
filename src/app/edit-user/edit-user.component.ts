@@ -1,11 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { User } from '../models/user.model';
 @Component({
@@ -15,16 +10,14 @@ import { User } from '../models/user.model';
 })
 export class EditUserComponent implements OnInit {
   newUserForm!: FormGroup;
-  userId!: string;
   qrCodeCreated = false;
-  userDoc!: any;
-  myNewThing!: any;
-  array!: any;
+  userDoc!: any; //
   constructor(
     private fb: FormBuilder,
     private afs: AngularFirestore,
     @Inject(MAT_DIALOG_DATA) public userData: User
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.newUserForm = this.fb.group({
@@ -33,7 +26,6 @@ export class EditUserComponent implements OnInit {
       idNum: [this.userData.idNum || 0, [Validators.required]],
       search: [null],
     });
-    // this.userDoc = this.afs.collection(`users/${this.userData.id}`)
   }
 
   getSearchArray(formValues: any) {
@@ -54,7 +46,7 @@ export class EditUserComponent implements OnInit {
         idNum: formValues.idNum,
         search: searchArray,
       });
-      this.qrCodeCreated = true; // Switches a template variable the other
+      this.qrCodeCreated = true;
     } catch (error) {
       console.log(error);
     }
