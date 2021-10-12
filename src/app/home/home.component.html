@@ -11,8 +11,10 @@
           </h3>
         </div>
         <div>
-          <button mat-raised-button matStepperPrevious>Back</button>
-          <button mat-raised-button matStepperNext>Next</button>
+          <button mat-raised-button matStepperPrevious color="primary">
+            Back
+          </button>
+          <button mat-raised-button matStepperNext color="primary">Next</button>
         </div>
       </div>
     </mat-step>
@@ -21,14 +23,16 @@
         <ng-template matStepLabel>Adding new users</ng-template>
         <div class="info">
           <h3>
-            You can add new users by going to Manage Users. From there you can
-            type in his details and upon registration a unique QR code will be
-            created. The user uses this QR code everytime he enters the venue
+            You can add new users by going to 'Manage Users'.  From there you can
+            type in their details and upon registration a unique QR code will be
+            created. The user's QR code gets scanned everytime they enter the venue
           </h3>
         </div>
         <div>
-          <button mat-raised-button matStepperPrevious>Back</button>
-          <button mat-raised-button matStepperNext>Next</button>
+          <button mat-raised-button matStepperPrevious color="primary">
+            Back
+          </button>
+          <button mat-raised-button matStepperNext color="primary">Next</button>
         </div>
       </div>
     </mat-step>
@@ -37,13 +41,15 @@
         <ng-template matStepLabel>Scanner</ng-template>
         <div class="info">
           <h3>
-            You, as the venue receptionist can scan the QR codes of the users
-            that are entering the venue by simply using the scanner
+            You can use 'Scanner' to scan the user's QR code.
+            After a QR code gets scanned the user's details get added in the 'Record'.
           </h3>
         </div>
         <div>
-          <button mat-raised-button matStepperPrevious>Back</button>
-          <button mat-raised-button matStepperNext>Next</button>
+          <button mat-raised-button matStepperPrevious color="primary">
+            Back
+          </button>
+          <button mat-raised-button matStepperNext color="primary">Next</button>
         </div>
       </div>
     </mat-step>
@@ -57,7 +63,14 @@
           </h3>
         </div>
         <div>
-          <button mat-raised-button matStepperPrevious>Back</button>
+          <button
+            mat-raised-button
+            matStepperPrevious
+            color="primary"
+            [routerLink]="['/manageUsers']"
+          >
+            Go to Manage Users
+          </button>
         </div>
       </div>
     </mat-step>

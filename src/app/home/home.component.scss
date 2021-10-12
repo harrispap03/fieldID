@@ -1,9 +1,8 @@
 .mat-stepper-horizontal {
   margin: 20px auto;
   width: 90%;
+  // height: 300px;
 }
-
-
 
 .container {
   width: 90%;
@@ -17,8 +16,17 @@
 h2, h3{
   color: whitesmoke;
   font-weight: normal;
+  // margin: 0;
 }
 
 .info{
   padding: 1.5em 0em;
+  max-width: 500px;
+  height: 100px;
+  justify-content: center;
+}
+
+button{
+  padding: 0em 1em;
+  margin-right: 1em;
 }
