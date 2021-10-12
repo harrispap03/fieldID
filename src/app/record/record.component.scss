@@ -1,16 +1,16 @@
-.mat-elevation-z24{    
+.mat-elevation-z24 {
   margin: 3rem auto; // 3 rem questionable
   align-items: center;
-  width: 95%; // could be less than 90%
-   border-radius: 20px;
-    overflow:hidden !important;
+  width: 70%; //
+  border-radius: 20px;
+  overflow: hidden !important;
 }
-.mat-table{    
+.mat-table {
   margin: 0 auto;
   align-items: center;
-    border-radius: 20px;
-    overflow:hidden !important;
-    width: 90%;
+  border-radius: 20px;
+  overflow: hidden !important;
+  width: 100%;
 }
 
 td,
@@ -18,8 +18,10 @@ th {
   text-align: center !important;
 }
 
-.mat-paginator{
+.mat-paginator {
   padding-right: 5rem;
-  // padding-top: 2rem; 
 }
 
+.mat-column-checkInTime {
+  width: 35% !important;
+}

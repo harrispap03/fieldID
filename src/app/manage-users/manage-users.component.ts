@@ -12,7 +12,7 @@ import { UsersService } from './users.service';
 })
 export class ManageUsersComponent {
   users$!: Observable<User[]>;
-  displayedColumns: string[] = ['name', 'surname', 'idNum', 'edit', 'delete'];
+  displayedColumns: string[] = ['name', 'surname', 'idNum', 'edit',];
 
   constructor(public popup: MatDialog, private _usersService: UsersService) {
     this.users$ = this._usersService.getUsers();
