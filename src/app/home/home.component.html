@@ -1,3 +1,65 @@
-<p>
-	Home will be here. An explanation wizard / cards will be added in the future
-</p>
+<div class="container mat-elevation-z24">
+  <mat-horizontal-stepper linear #stepper>
+    <mat-step>
+      <div class="step">
+        <ng-template matStepLabel>Welcome</ng-template>
+        <div class="info">
+          <h3>Welcome to FieldID!</h3>
+          <h3>
+            This app was created to solve a real world problem by managing user
+            tracking in a venue
+          </h3>
+        </div>
+        <div>
+          <button mat-raised-button matStepperPrevious>Back</button>
+          <button mat-raised-button matStepperNext>Next</button>
+        </div>
+      </div>
+    </mat-step>
+    <mat-step>
+      <div>
+        <ng-template matStepLabel>Adding new users</ng-template>
+        <div class="info">
+          <h3>
+            You can add new users by going to Manage Users. From there you can
+            type in his details and upon registration a unique QR code will be
+            created. The user uses this QR code everytime he enters the venue
+          </h3>
+        </div>
+        <div>
+          <button mat-raised-button matStepperPrevious>Back</button>
+          <button mat-raised-button matStepperNext>Next</button>
+        </div>
+      </div>
+    </mat-step>
+    <mat-step>
+      <div>
+        <ng-template matStepLabel>Scanner</ng-template>
+        <div class="info">
+          <h3>
+            You, as the venue receptionist can scan the QR codes of the users
+            that are entering the venue by simply using the scanner
+          </h3>
+        </div>
+        <div>
+          <button mat-raised-button matStepperPrevious>Back</button>
+          <button mat-raised-button matStepperNext>Next</button>
+        </div>
+      </div>
+    </mat-step>
+    <mat-step>
+      <div>
+        <ng-template matStepLabel>Record</ng-template>
+        <div class="info">
+          <h3>
+            Record keeps track of the users you have scanned sorting them by
+            most to less recent
+          </h3>
+        </div>
+        <div>
+          <button mat-raised-button matStepperPrevious>Back</button>
+        </div>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>

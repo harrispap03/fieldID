@@ -23,7 +23,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { MatStepperModule } from '@angular/material/stepper';
 
 import { environment } from 'src/environments/environment';
 import { QRCodeModule } from 'angularx-qrcode';
@@ -65,6 +65,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     ZXingScannerModule,
     MatPaginatorModule,
     MatDialogModule,
+    MatStepperModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
