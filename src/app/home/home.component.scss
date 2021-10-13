@@ -1,7 +1,6 @@
 .mat-stepper-horizontal {
   margin: 20px auto;
   width: 90%;
-  // height: 300px;
 }
 
 .container {
@@ -12,21 +11,25 @@
   margin: 3em auto;
 }
 
-
-h2, h3{
+h2,
+h3 {
   color: whitesmoke;
   font-weight: normal;
-  // margin: 0;
 }
 
-.info{
+.info {
   padding: 1.5em 0em;
-  max-width: 500px;
-  height: 100px;
   justify-content: center;
 }
 
-button{
+button {
   padding: 0em 1em;
   margin-right: 1em;
+}
+
+@media (min-width: 599.98px) and (orientation: portrait),
+  (min-width: 959.98px) and (orientation: landscape) {
+  .info {
+    height: 100px;
+  }
 }

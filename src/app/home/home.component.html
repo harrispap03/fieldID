@@ -1,78 +1,176 @@
-<div class="container mat-elevation-z24">
-  <mat-horizontal-stepper linear #stepper>
-    <mat-step>
-      <div class="step">
-        <ng-template matStepLabel>Welcome</ng-template>
-        <div class="info">
-          <h3>Welcome to FieldID!</h3>
-          <h3>
-            This app was created to solve a real world problem by managing user
-            tracking in a venue
-          </h3>
+<div *ngIf="isHandset$ | async">
+  <div class="container mat-elevation-z24">
+    <mat-vertical-stepper linear #stepper>
+      <mat-step>
+        <div class="step">
+          <ng-template matStepLabel>Welcome</ng-template>
+          <div class="info">
+            <h3>Welcome to FieldID!</h3>
+            <h3>
+              This app was created to solve a real world problem by managing
+              user tracking in a venue
+            </h3>
+          </div>
+          <div>
+            <button mat-raised-button matStepperPrevious color="primary">
+              Back
+            </button>
+            <button mat-raised-button matStepperNext color="primary">
+              Next
+            </button>
+          </div>
         </div>
+      </mat-step>
+      <mat-step>
         <div>
-          <button mat-raised-button matStepperPrevious color="primary">
-            Back
-          </button>
-          <button mat-raised-button matStepperNext color="primary">Next</button>
+          <ng-template matStepLabel>Adding new users</ng-template>
+          <div class="info">
+            <h3>
+              You can add new users by going to 'Manage Users'. From there you
+              can type in their details and upon registration a unique QR code
+              will be created. The user's QR code gets scanned everytime they
+              enter the venue
+            </h3>
+          </div>
+          <div>
+            <button mat-raised-button matStepperPrevious color="primary">
+              Back
+            </button>
+            <button mat-raised-button matStepperNext color="primary">
+              Next
+            </button>
+          </div>
         </div>
-      </div>
-    </mat-step>
-    <mat-step>
-      <div>
-        <ng-template matStepLabel>Adding new users</ng-template>
-        <div class="info">
-          <h3>
-            You can add new users by going to 'Manage Users'.  From there you can
-            type in their details and upon registration a unique QR code will be
-            created. The user's QR code gets scanned everytime they enter the venue
-          </h3>
-        </div>
+      </mat-step>
+      <mat-step>
         <div>
-          <button mat-raised-button matStepperPrevious color="primary">
-            Back
-          </button>
-          <button mat-raised-button matStepperNext color="primary">Next</button>
+          <ng-template matStepLabel>Scanner</ng-template>
+          <div class="info">
+            <h3>
+              You can use 'Scanner' to scan the user's QR code. After a QR code
+              gets scanned the user's details get added in the 'Record'.
+            </h3>
+          </div>
+          <div>
+            <button mat-raised-button matStepperPrevious color="primary">
+              Back
+            </button>
+            <button mat-raised-button matStepperNext color="primary">
+              Next
+            </button>
+          </div>
         </div>
-      </div>
-    </mat-step>
-    <mat-step>
-      <div>
-        <ng-template matStepLabel>Scanner</ng-template>
-        <div class="info">
-          <h3>
-            You can use 'Scanner' to scan the user's QR code.
-            After a QR code gets scanned the user's details get added in the 'Record'.
-          </h3>
-        </div>
+      </mat-step>
+      <mat-step>
         <div>
-          <button mat-raised-button matStepperPrevious color="primary">
-            Back
-          </button>
-          <button mat-raised-button matStepperNext color="primary">Next</button>
+          <ng-template matStepLabel>Record</ng-template>
+          <div class="info">
+            <h3>
+              Record keeps track of the users you have scanned sorting them by
+              most to less recent
+            </h3>
+          </div>
+          <div>
+            <button
+              mat-raised-button
+              matStepperPrevious
+              color="primary"
+              [routerLink]="['/manageUsers']"
+            >
+              Go to Manage Users
+            </button>
+          </div>
         </div>
-      </div>
-    </mat-step>
-    <mat-step>
-      <div>
-        <ng-template matStepLabel>Record</ng-template>
-        <div class="info">
-          <h3>
-            Record keeps track of the users you have scanned sorting them by
-            most to less recent
-          </h3>
+      </mat-step>
+    </mat-vertical-stepper>
+  </div>
+</div>
+
+
+<div *ngIf="!(isHandset$ | async)">
+  <div class="container mat-elevation-z24">
+    <mat-horizontal-stepper linear #stepper>
+      <mat-step>
+        <div class="step">
+          <ng-template matStepLabel>Welcome</ng-template>
+          <div class="info">
+            <h3>Welcome to FieldID!</h3>
+            <h3>
+              This app was created to solve a real world problem by managing
+              user tracking in a venue
+            </h3>
+          </div>
+          <div>
+            <button mat-raised-button matStepperPrevious color="primary">
+              Back
+            </button>
+            <button mat-raised-button matStepperNext color="primary">
+              Next
+            </button>
+          </div>
         </div>
+      </mat-step>
+      <mat-step>
         <div>
-          <button
-            mat-raised-button
-            matStepperPrevious
-            color="primary"
-            [routerLink]="['/manageUsers']"
-          >
-            Go to Manage Users
-          </button>
+          <ng-template matStepLabel>Adding new users</ng-template>
+          <div class="info">
+            <h3>
+              You can add new users by going to 'Manage Users'. From there you
+              can type in their details and upon registration a unique QR code
+              will be created. The user's QR code gets scanned everytime they
+              enter the venue
+            </h3>
+          </div>
+          <div>
+            <button mat-raised-button matStepperPrevious color="primary">
+              Back
+            </button>
+            <button mat-raised-button matStepperNext color="primary">
+              Next
+            </button>
+          </div>
         </div>
-      </div>
-    </mat-step>
-  </mat-horizontal-stepper>
+      </mat-step>
+      <mat-step>
+        <div>
+          <ng-template matStepLabel>Scanner</ng-template>
+          <div class="info">
+            <h3>
+              You can use 'Scanner' to scan the user's QR code. After a QR code
+              gets scanned the user's details get added in the 'Record'.
+            </h3>
+          </div>
+          <div>
+            <button mat-raised-button matStepperPrevious color="primary">
+              Back
+            </button>
+            <button mat-raised-button matStepperNext color="primary">
+              Next
+            </button>
+          </div>
+        </div>
+      </mat-step>
+      <mat-step>
+        <div>
+          <ng-template matStepLabel>Record</ng-template>
+          <div class="info">
+            <h3>
+              Record keeps track of the users you have scanned sorting them by
+              most to less recent
+            </h3>
+          </div>
+          <div>
+            <button
+              mat-raised-button
+              matStepperPrevious
+              color="primary"
+              [routerLink]="['/manageUsers']"
+            >
+              Go to Manage Users
+            </button>
+          </div>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
 </div>
