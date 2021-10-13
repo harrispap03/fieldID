@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { browser } from 'protractor';
 import {
   BehaviorSubject,
   Observable,
@@ -39,7 +40,7 @@ export class QrScannerComponent {
   }
 
   onCamerasNotFound(error: Error) {
-    this.camerasNotFound = true;
+    window.alert('The scanner needs a camera to work.  No camera found :(');
   }
 
   onScanSuccess(qrCode: string) {
