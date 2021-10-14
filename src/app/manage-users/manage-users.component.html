@@ -13,11 +13,9 @@
     <button mat-flat-button color="basic" (click)="onRefresh()">
       <mat-icon>refresh</mat-icon>
     </button>
-    <mat-dialog-content>
-      <button mat-flat-button color="basic" (click)="addNewUser()">
-        <mat-icon>add_circle_outline</mat-icon>
-      </button>
-    </mat-dialog-content>
+    <button mat-flat-button color="basic" (click)="addNewUser()">
+      <mat-icon>add_circle_outline</mat-icon>
+    </button>
   </div>
   <table mat-table [dataSource]="users$" class="table-list mat-elevation-z24">
     <!-- Name Column -->
