@@ -8,24 +8,23 @@ import { ManageUsersComponent } from './manage-users/manage-users.component';
 
 const routes: Routes = [
   {
+    path: 'manageUsers',
+    component: ManageUsersComponent,
+    data: { animation: 'isLeft' },
+  },
+  {
     path: 'home',
-    component: HomeComponent,
-    data: { animation: 'HomePage' },
+    component: HomeComponent
   },
   {
     path: 'qrScanner',
     component: QrScannerComponent,
-    data: { animation: 'ScannerPage' },
-  },
-  {
-    path: 'manageUsers',
-    component: ManageUsersComponent,
-    data: { animation: 'ManageUsersPage' },
+    // data: { animation: 'fader' },
   },
   {
     path: 'record',
     component: RecordComponent,
-    data: { animation: 'RecordPage' },
+    data: { animation: 'isRight' },
   },
   {
     path: '**',

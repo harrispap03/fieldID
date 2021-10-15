@@ -1,17 +1,19 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { slideInAnimation } from './animations';
+import { fader, slider } from './animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [slideInAnimation]
+  animations:[slider, fader]
 })
 export class AppComponent {
-  title = 'fieldID';
-
-  prepareRoute(outlet: RouterOutlet){
-    return outlet?.activatedRouteData?.animation;
+  prepareRoute(outlet: RouterOutlet) {
+    return (
+      outlet &&
+      outlet.activatedRouteData &&
+      outlet.activatedRouteData['animation']
+    );
   }
 }
