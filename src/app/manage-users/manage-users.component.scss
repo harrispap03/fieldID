@@ -48,4 +48,9 @@ th {
 .mat-column-edit {
   width: 25% !important;
 }
-
+@media (max-width: 599.98px) and (orientation: portrait),
+  (max-width: 959.98px) and (orientation: landscape) {
+  .container {
+    width: 95%;
+  }
+}
