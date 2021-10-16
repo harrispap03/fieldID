@@ -3,10 +3,12 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { RecentUser } from '../models/recentUser.model';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { listAnimation } from '../animations';
 @Component({
   selector: 'app-record',
   templateUrl: './record.component.html',
   styleUrls: ['./record.component.scss'],
+  animations: [listAnimation],
 })
 export class RecordComponent implements OnInit {
   recentUsers$!: any;
@@ -16,6 +18,10 @@ export class RecordComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private afs: AngularFirestore) {}
+
+  trackBy(user: any) {
+    return user.id;
+  }
 
   ngOnInit() {
     this.recentUsers$ = this.afs

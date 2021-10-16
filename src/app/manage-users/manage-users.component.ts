@@ -1,18 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { AddNewUserComponent } from '../add-new-user/add-new-user.component';
 import { EditUserComponent } from '../edit-user/edit-user.component';
 import { User } from '../models/user.model';
 import { UsersService } from './users.service';
+import { listAnimation } from '../animations';
 @Component({
   selector: 'app-manage-users',
   templateUrl: './manage-users.component.html',
   styleUrls: ['./manage-users.component.scss'],
+  animations: [listAnimation],
 })
 export class ManageUsersComponent {
   users$!: Observable<User[]>;
-  displayedColumns: string[] = ['name', 'surname', 'idNum', 'edit',];
+  displayedColumns: string[] = ['name', 'surname', 'idNum', 'edit'];
 
   constructor(public popup: MatDialog, private _usersService: UsersService) {
     this.users$ = this._usersService.getUsers();
@@ -20,6 +22,10 @@ export class ManageUsersComponent {
 
   addNewUser() {
     this.popup.open(AddNewUserComponent);
+  }
+
+  TrackBy(user: any): User {
+    return user.idNum;
   }
 
   editUser(user: User) {
@@ -33,7 +39,7 @@ export class ManageUsersComponent {
     });
   }
 
-  onRefresh(){
+  onRefresh() {
     this.users$ = this._usersService.getUsers();
   }
 

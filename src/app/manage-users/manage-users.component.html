@@ -17,7 +17,12 @@
       <mat-icon>add_circle_outline</mat-icon>
     </button>
   </div>
-  <table mat-table [dataSource]="users$" class="table-list mat-elevation-z24">
+  <table
+    mat-table
+    [dataSource]="users$"
+    class="table-list mat-elevation-z24"
+    [trackBy]="TrackBy"
+  >
     <!-- Name Column -->
 
     <ng-container matColumnDef="name">
@@ -50,6 +55,10 @@
     >
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    <tr
+      [@listAnimation]=""
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+    ></tr>
   </table>
 </div>

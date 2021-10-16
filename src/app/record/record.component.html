@@ -1,5 +1,5 @@
-<div class="mat-elevation-z24 container" >
-  <table mat-table [dataSource]="dataSource">
+<div class="mat-elevation-z24 container">
+  <table mat-table [dataSource]="dataSource" [trackBy]="trackBy">
     <!-- name Column -->
     <ng-container matColumnDef="name" class="container">
       <th mat-header-cell *matHeaderCellDef>Name</th>
@@ -27,7 +27,11 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    <tr
+      [@listAnimation]=""
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+    ></tr>
   </table>
   <mat-paginator
     [pageSizeOptions]="[5, 10, 20]"
