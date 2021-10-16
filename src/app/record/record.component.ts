@@ -4,6 +4,7 @@ import { RecentUser } from '../models/recentUser.model';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { listAnimation } from '../animations';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-record',
   templateUrl: './record.component.html',
@@ -11,7 +12,7 @@ import { listAnimation } from '../animations';
   animations: [listAnimation],
 })
 export class RecordComponent implements OnInit {
-  recentUsers$!: any;
+  recentUsers$!: Subscription;
   dataSource = new MatTableDataSource<RecentUser>();
   displayedColumns: string[] = ['name', 'surname', 'idNum', 'checkInTime'];
 
