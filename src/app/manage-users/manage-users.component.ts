@@ -24,7 +24,7 @@ export class ManageUsersComponent {
     this.popup.open(AddNewUserComponent);
   }
 
-  TrackBy(user: any): User {
+  trackBy(user: any): User {
     return user.idNum;
   }
 
