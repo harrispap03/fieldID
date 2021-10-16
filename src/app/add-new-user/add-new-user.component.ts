@@ -18,14 +18,19 @@ export class AddNewUserComponent implements OnInit {
   userId!: string;
   qrCodeCreated = false;
 
-  constructor(private fb: FormBuilder, private afs: AngularFirestore, @Inject(MAT_DIALOG_DATA) public userData: User) {}
+  constructor(
+    private fb: FormBuilder,
+    private afs: AngularFirestore,
+    @Inject(MAT_DIALOG_DATA) public userData: User
+  ) {}
 
   ngOnInit(): void {
     this.newUserForm = this.fb.group({
       name: [null, [Validators.required]],
       surname: [null, [Validators.required]],
       idNum: [null, [Validators.required]],
-      search: [null],
+      search: [''],
+      dateCreated: [''],
     });
   }
 
@@ -35,11 +40,13 @@ export class AddNewUserComponent implements OnInit {
     let arr: any = [];
 
     Object.keys(userData).map((key) => {
-      arr.push(userData[key]);
+      if (userData[key]) {
+        arr.push(userData[key]);
+      }
     });
 
     this.newUserForm.patchValue({ search: arr });
-
+    this.newUserForm.patchValue({ dateCreated: new Date() });
     const formValue = this.newUserForm.value;
     try {
       await this.afs

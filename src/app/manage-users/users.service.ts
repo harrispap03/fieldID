@@ -16,10 +16,12 @@ export class UsersService {
   users$!: Observable<User[]>;
   usersCollection: AngularFirestoreCollection<User>;
 
-  searchResult$!: Observable<User[]>
+  searchResult$!: Observable<User[]>;
 
   constructor(private afs: AngularFirestore) {
-    this.usersCollection = this.afs.collection('users');
+    this.usersCollection = this.afs.collection('users', (ref) =>
+      ref.orderBy('dateCreated', 'asc')
+    );
 
     this.users$ = this.usersCollection.snapshotChanges().pipe(
       map((changes) => {
@@ -46,8 +48,8 @@ export class UsersService {
             return data;
           });
         })
-      )
-      return this.searchResult$;
+      );
+    return this.searchResult$;
   }
 
   getUsers(): Observable<User[]> {
