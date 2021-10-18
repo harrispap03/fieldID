@@ -1,20 +1,18 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { browser } from 'protractor';
 import {
-  BehaviorSubject,
-  Observable,
   Subject,
-  Subscriber,
   Subscription,
 } from 'rxjs';
-import { distinctUntilChanged, filter, mergeMap } from 'rxjs/operators';
+import { distinctUntilChanged, mergeMap } from 'rxjs/operators';
+import { listAnimation } from '../animations';
 import { RecentUser } from '../models/recentUser.model';
 import { User } from '../models/user.model';
 @Component({
   selector: 'app-qr-scanner',
   templateUrl: './qr-scanner.component.html',
   styleUrls: ['./qr-scanner.component.scss'],
+  animations: [listAnimation]
 })
 export class QrScannerComponent {
   private qrResult$ = new Subject<string>();
@@ -22,7 +20,7 @@ export class QrScannerComponent {
   userData!: User;
   private recentUserData!: RecentUser | undefined;
   camerasNotFound!: boolean;
-  success = 'Success';
+  success = false;
   constructor(private afs: AngularFirestore) {
     this.addUserToAFS = this.qrResult$
       .pipe(
@@ -36,6 +34,8 @@ export class QrScannerComponent {
         this.recentUserData!.checkInTime = new Date();
         this.afs.collection('recentUsers').add(this.recentUserData);
         this.playScannSuccessAudio();
+        this.success = true;
+        setTimeout(() => this.success = false, 2000);
       });
   }
 

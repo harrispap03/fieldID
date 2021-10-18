@@ -3,5 +3,10 @@
     (camerasNotFound)="onCamerasNotFound($event)"
     (scanSuccess)="onScanSuccess($event)"
   >
-  </zxing-scanner>
+</zxing-scanner>
+<div>
+  <div [@listAnimation]="" *ngIf="success">
+    <h2>OK</h2>
+  </div>
 </div>
+</div> 

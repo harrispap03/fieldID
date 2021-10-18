@@ -1,6 +1,13 @@
 .container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   height: 92vh;
+  padding: 0;
+  margin: 0;
+}
+
+h2{
+  color: rgb(84, 179, 84);
 }
