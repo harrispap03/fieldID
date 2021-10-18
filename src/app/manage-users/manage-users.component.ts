@@ -6,7 +6,6 @@ import { EditUserComponent } from '../edit-user/edit-user.component';
 import { User } from '../models/user.model';
 import { UsersService } from './users.service';
 import { listAnimation } from '../animations';
-import { AngularFirestore } from '@angular/fire/firestore';
 @Component({
   selector: 'app-manage-users',
   templateUrl: './manage-users.component.html',

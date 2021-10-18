@@ -6,6 +6,7 @@ import {
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { RecentUser } from '../models/recentUser.model';
 import { User } from '../models/user.model';
 
 @Injectable({
@@ -15,6 +16,8 @@ export class UsersService {
   userDoc!: AngularFirestoreDocument<User>;
   users$!: Observable<User[]>;
   usersCollection: AngularFirestoreCollection<User>;
+  recentUsers$!: Observable<RecentUser[]>;
+  recentUsersCollection!: AngularFirestoreCollection<RecentUser>;
 
   searchResult$!: Observable<User[]>;
 
@@ -23,10 +26,24 @@ export class UsersService {
       ref.orderBy('dateCreated', 'asc')
     );
 
+    this.recentUsersCollection = this.afs.collection('recentUsers', (ref) =>
+      ref.orderBy('checkInTime', 'desc')
+    );
+
     this.users$ = this.usersCollection.snapshotChanges().pipe(
       map((changes) => {
         return changes.map((a) => {
           const data = a.payload.doc.data() as User;
+          data.id = a.payload.doc.id;
+          return data;
+        });
+      })
+    );
+
+    this.recentUsers$ = this.recentUsersCollection.snapshotChanges().pipe(
+      map((changes) => {
+        return changes.map((a) => {
+          const data = a.payload.doc.data() as RecentUser;
           data.id = a.payload.doc.id;
           return data;
         });
@@ -56,8 +73,17 @@ export class UsersService {
     return this.users$;
   }
 
+  getRecentUsers(): Observable<RecentUser[]>{
+    return this.recentUsers$;
+  }
+
   deleteUser(user: User): void {
     this.userDoc = this.afs.doc(`users/${user.id}`);
+    this.userDoc.delete();
+  }
+
+  deleteRecentUser(user: User): void {
+    this.userDoc = this.afs.doc(`recentUsers/${user.id}`);
     this.userDoc.delete();
   }
 }
