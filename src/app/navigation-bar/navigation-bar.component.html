@@ -10,7 +10,7 @@
   >
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/home" (click)="drawer.close()">Home</a>
+      <a mat-list-item routerLink="/home" (click)="drawer.close()">How to use the app</a>
       <a mat-list-item routerLink="/manageUsers" (click)="drawer.close()"
         >Manage Users</a
       >
@@ -39,7 +39,7 @@
       <span class="fill-space"></span>
       <div *ngIf="!(isHandset$ | async)">
         <a mat-button routerLink="/manageUsers">Manage Users</a>
-        <a mat-button routerLink="/home">Home</a>
+        <a mat-button routerLink="/home">How to use the app</a>
         <a mat-button routerLink="/record">Record</a>
         <a mat-button routerLink="/qrScanner">Scanner</a>
       </div>
