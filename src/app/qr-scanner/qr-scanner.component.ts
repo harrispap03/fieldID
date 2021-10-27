@@ -31,13 +31,13 @@ export class QrScannerComponent {
         this.recentUserData = userData;
         this.recentUserData!.checkInTime = new Date();
         this.afs.collection('recentUsers').add(this.recentUserData);
-        this.playScannSuccesAudio();
+        this.playScanSuccesAudio();
         this.success = true;
         setTimeout(() => (this.success = false), 2000);
       });
   }
 
-  playScannSuccesAudio() {
+  playScanSuccesAudio() {
     let audio = new Audio();
     audio.src = '../../assets/scannedAudio.wav';
     audio.load();
