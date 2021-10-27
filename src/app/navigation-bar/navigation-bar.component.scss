@@ -12,3 +12,9 @@ a {
   justify-content: space-between;
   padding: 0 2em;
 }
+
+@media print{
+  .mat-sidenav-container, .mat-sidenav{
+    display: none !important;
+  }
+}
