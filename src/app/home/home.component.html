@@ -3,71 +3,69 @@
     <mat-vertical-stepper linear #stepper>
       <mat-step>
         <div class="step">
-          <ng-template matStepLabel>Welcome</ng-template>
+          <ng-template matStepLabel>Καλωσορίσατε</ng-template>
           <div class="info">
-            <h3>Welcome to FieldID!</h3>
+            <h3>Καλωσορίσατε στο FieldID!</h3>
             <h3>
-              This app was created to solve a real world problem by managing
-              user tracking in a venue
+              Αυτή η εφαρμογή δημιουργήθηκε για να κάνει πιο εύκολη και γρήγορη
+              την καταγραφή εισόδων σε αθλητικές εγκαταστάσεις
             </h3>
           </div>
           <div>
-            <button mat-raised-button matStepperPrevious color="primary">
-              Back
-            </button>
             <button mat-raised-button matStepperNext color="primary">
-              Next
+              Επόμενο
             </button>
           </div>
         </div>
       </mat-step>
       <mat-step>
         <div>
-          <ng-template matStepLabel>Adding new users</ng-template>
+          <ng-template matStepLabel>Εγγραφή χρηστών</ng-template>
           <div class="info">
             <h3>
-              You can add new users by going to 'Manage Users'. From there you
-              can type in their details and upon registration a unique QR code
-              will be created. The QR code is given to the user to use for every
-              venue entry
+              Μπορείτε να κάνετε εγγραφή χρηστών μέσα από το μενού "Διαχείρηση
+              Χρηστών". Αφού γεμίσετε την φόρμα εγγραφής κατά την ολοκλήρωσή της
+              θα εμφανιστεί ένα QR code. Αυτό το QR code δίνεται στον αθλητή
+              ώστε να μπορεί να το σκανάρει κατά την είσοδό του
             </h3>
           </div>
           <div>
             <button mat-raised-button matStepperPrevious color="primary">
-              Back
+              Πίσω
             </button>
             <button mat-raised-button matStepperNext color="primary">
-              Next
+              Επόμενο
             </button>
           </div>
         </div>
       </mat-step>
       <mat-step>
         <div>
-          <ng-template matStepLabel>Scanner</ng-template>
+          <ng-template matStepLabel>Σκάνερ</ng-template>
           <div class="info">
             <h3>
-              You can use 'Scanner' to scan the user's QR code. After a QR code
-              gets scanned the user's details get added in the 'Record'
+              Για να σκανάρετε τα QR codes χρησιμοποιείτε το "Σκάνερ". Κάθε φορά
+              που σκανάρετε ένα QR code τα στοιχεία του χρήστη προσθέτονται στην
+              "Κατάσταση"
             </h3>
           </div>
           <div>
             <button mat-raised-button matStepperPrevious color="primary">
-              Back
+              Πίσω
             </button>
             <button mat-raised-button matStepperNext color="primary">
-              Next
+              Επόμενο
             </button>
           </div>
         </div>
       </mat-step>
       <mat-step>
         <div>
-          <ng-template matStepLabel>Record</ng-template>
+          <ng-template matStepLabel>Κατάσταση</ng-template>
           <div class="info">
             <h3>
-              Record keeps track of the users you have scanned sorting them by
-              most to less recent
+              Στην κατάσταση βρίσκονται όλοι οι χρήστες που έχουν εισέλθει στον
+              χώρο, με τους πιο πρόσφατους να εμφανίζονται πιο πάνω στην λίστα
             </h3>
           </div>
           <div>
@@ -77,7 +75,7 @@
               color="primary"
               [routerLink]="['/manageUsers']"
             >
-              Go to Manage Users
+              Διαχείρηση Χρηστών
             </button>
           </div>
         </div>
@@ -91,71 +89,69 @@
     <mat-horizontal-stepper linear #stepper>
       <mat-step>
         <div class="step">
-          <ng-template matStepLabel>Welcome</ng-template>
+          <ng-template matStepLabel>Καλωσορίσατε</ng-template>
           <div class="info">
-            <h3>Welcome to FieldID!</h3>
+            <h3>Καλωσορίσατε στο FieldID!</h3>
             <h3>
-              This app was created to solve a real world problem by managing
-              user tracking in a venue
+              Αυτή η εφαρμογή δημιουργήθηκε για να κάνει πιο εύκολη και γρήγορη
+              την καταγραφή εισόδων σε αθλητικές εγκαταστάσεις
             </h3>
           </div>
           <div>
-            <button mat-raised-button matStepperPrevious color="primary">
-              Back
-            </button>
             <button mat-raised-button matStepperNext color="primary">
-              Next
+              Επόμενο
             </button>
           </div>
         </div>
       </mat-step>
       <mat-step>
         <div>
-          <ng-template matStepLabel>Adding new users</ng-template>
+          <ng-template matStepLabel>Εγγραφή χρηστών</ng-template>
           <div class="info">
             <h3>
-              You can add new users by going to 'Manage Users'. From there you
-              can type in their details and upon registration a unique QR code
-              will be created. The user's QR code gets scanned everytime they
-              enter the venue
+              Μπορείτε να κάνετε εγγραφή χρηστών μέσα από το μενού "Διαχείρηση
+              Χρηστών". Αφού γεμίσετε την φόρμα εγγραφής κατά την ολοκλήρωσή της
+              θα εμφανιστεί ένα QR code. Αυτό το QR code δίνεται στον αθλητή
+              ώστε να μπορεί να το σκανάρει κατά την είσοδό του
             </h3>
           </div>
           <div>
             <button mat-raised-button matStepperPrevious color="primary">
-              Back
+              Πίσω
             </button>
             <button mat-raised-button matStepperNext color="primary">
-              Next
+              Επόμενο
             </button>
           </div>
         </div>
       </mat-step>
       <mat-step>
         <div>
-          <ng-template matStepLabel>Scanner</ng-template>
+          <ng-template matStepLabel>Σκάνερ</ng-template>
           <div class="info">
             <h3>
-              You can use 'Scanner' to scan the user's QR code. After a QR code
-              gets scanned the user's details get added in the 'Record'.
+              Για να σκανάρετε τα QR codes χρησιμοποιείτε το "Σκάνερ". Κάθε φορά
+              που σκανάρετε ένα QR code τα στοιχεία του χρήστη προσθέτονται στην
+              "Κατάσταση"
             </h3>
           </div>
           <div>
             <button mat-raised-button matStepperPrevious color="primary">
-              Back
+              Πίσω
             </button>
             <button mat-raised-button matStepperNext color="primary">
-              Next
+              Επόμενο
             </button>
           </div>
         </div>
       </mat-step>
       <mat-step>
         <div>
-          <ng-template matStepLabel>Record</ng-template>
+          <ng-template matStepLabel>Κατάσταση</ng-template>
           <div class="info">
             <h3>
-              Record keeps track of the users you have scanned sorting them by
-              most to less recent
+              Στην κατάσταση βρίσκονται όλοι οι χρήστες που έχουν εισέλθει στον
+              χώρο, με τους πιο πρόσφατους να εμφανίζονται πιο πάνω στην λίστα
             </h3>
           </div>
           <div>
@@ -165,7 +161,7 @@
               color="primary"
               [routerLink]="['/manageUsers']"
             >
-              Go to Manage Users
+              Διαχείρηση Χρηστών
             </button>
           </div>
         </div>
