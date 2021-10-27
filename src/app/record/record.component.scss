@@ -45,4 +45,14 @@ th {
   .mat-elevation-z24 {
     box-shadow: none;
   }
+
+  .mat-cell,
+  .mat-header-cell,
+  .pageSizeOptions {
+    color: black !important;
+  }
+
+  .mat-paginator{
+    display: none;
+  }
 }
