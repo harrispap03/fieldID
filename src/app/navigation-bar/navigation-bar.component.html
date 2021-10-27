@@ -10,7 +10,7 @@
   >
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/home" (click)="drawer.close()">Πώς να χρησιμοποιήσετε την εφαρμογή</a>
+      <a mat-list-item routerLink="/home" (click)="drawer.close()">Οδηγίες χρήσης</a>
       <a mat-list-item routerLink="/manageUsers" (click)="drawer.close()"
         >Διαχείρηση Χρηστών</a
       >
@@ -39,7 +39,7 @@
       <span class="fill-space"></span>
       <div *ngIf="!(isHandset$ | async)">
         <a mat-button routerLink="/manageUsers">Διαχείρηση Χρηστών</a>
-        <a mat-button routerLink="/home">Πώς να χρησιμοποιήσετε την εφαρμογή</a>
+        <a mat-button routerLink="/home">Οδηγίες χρήσης</a>
         <a mat-button routerLink="/record">Κατάσταση</a>
         <a mat-button routerLink="/qrScanner">Σκάνερ</a>
       </div>

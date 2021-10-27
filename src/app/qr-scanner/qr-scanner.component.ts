@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import {
-  Subject,
-  Subscription,
-} from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { distinctUntilChanged, mergeMap } from 'rxjs/operators';
 import { listAnimation } from '../animations';
 import { RecentUser } from '../models/recentUser.model';
@@ -12,9 +9,10 @@ import { User } from '../models/user.model';
   selector: 'app-qr-scanner',
   templateUrl: './qr-scanner.component.html',
   styleUrls: ['./qr-scanner.component.scss'],
-  animations: [listAnimation]
+  animations: [listAnimation],
 })
 export class QrScannerComponent {
+  cameraError = 'Could not detect camera, please allow the use of it in settings';
   private qrResult$ = new Subject<string>();
   addUserToAFS!: Subscription;
   userData!: User;
@@ -35,7 +33,7 @@ export class QrScannerComponent {
         this.afs.collection('recentUsers').add(this.recentUserData);
         this.playScannSuccessAudio();
         this.success = true;
-        setTimeout(() => this.success = false, 2000);
+        setTimeout(() => (this.success = false), 2000);
       });
   }
 
@@ -46,8 +44,8 @@ export class QrScannerComponent {
     audio.play();
   }
 
-  onCamerasNotFound(error: Error) {
-    window.alert('The scanner needs a camera to work.  No camera found :(');
+  onCamerasFound() {
+    this.cameraError = "";
   }
 
   onScanSuccess(qrCode: string) {
